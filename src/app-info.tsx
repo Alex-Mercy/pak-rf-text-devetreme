@@ -1,4 +1,4 @@
 const appInfo = {
-  title: "PAK RF",
+  title: "ПАК РФ",
 };
 export default appInfo;

@@ -9,11 +9,11 @@ export const navigation = [
     icon: "folder",
     items: [
       {
-        text: "Profile",
+        text: "Профиль",
         path: "/profile",
       },
       {
-        text: "Tasks",
+        text: "Задания",
         path: "/tasks",
       },
       {

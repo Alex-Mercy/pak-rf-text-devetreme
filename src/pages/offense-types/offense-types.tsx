@@ -11,7 +11,7 @@ import DataGrid, {
 } from "devextreme-react/data-grid";
 import "devextreme-react/text-area";
 import { Item } from "devextreme-react/form";
-import { employees, states } from "./data.js";
+import { offenseTypes, offenseCategories } from "./mock.js";
 
 const notesEditorOptions = { height: 100 };
 
@@ -87,7 +87,22 @@ export default function OffenseTypes() {
           />
         </DataGrid> */}
 
-      <DataGrid dataSource={employees} keyExpr="ID" showBorders={true}>
+      {/* <Item itemType="group" colCount={2} colSpan={2}>
+              <Item dataField="Категория" />
+              <Item dataField="Название" />
+              <Item dataField="Скрыто" />
+              <Item dataField="Скрыто на карте" />
+              <Item dataField="Сценарий фиксации" />
+              <Item dataField="Категория из Траффика" />
+              <Item dataField="Запрещающий комментарий" />
+              <Item dataField="Продолжительность видео" />
+              <Item dataField="Комментарий перед фиксацией" />
+              <Item dataField="Мета данные" />
+              <Item dataField="Запрет фиксировать в произвольном месте" />
+              <Item dataField="Цвет" />
+              <Item dataField="Вес" /> */}
+
+      <DataGrid dataSource={offenseTypes} keyExpr="id" showBorders={true}>
         <Paging defaultPageSize={10} />
         <Pager showPageSizeSelector={true} showInfo={true} />
         <Editing
@@ -97,13 +112,13 @@ export default function OffenseTypes() {
           allowDeleting={true}
         >
           <Popup
-            title="Employee Info"
+            title="Редактирование"
             showTitle={true}
-            width={700}
-            height={525}
+            width={1000}
+            height={800}
           />
           <Form>
-            <Item itemType="group" colCount={2} colSpan={2}>
+            {/* <Item itemType="group" colCount={2} colSpan={2}>
               <Item dataField="FirstName" />
               <Item dataField="LastName" />
               <Item dataField="Prefix" />
@@ -126,10 +141,33 @@ export default function OffenseTypes() {
             >
               <Item dataField="StateID" />
               <Item dataField="Address" />
-            </Item>
+            </Item> */}
+            {/* <Item itemType="group" colCount={2} colSpan={2}> */}
+            <Item dataField="categoryId" />
+            <Item dataField="name" />
+            <Item dataField="hidden" />
+            <Item dataField="hidden_on_map" />
+            <Item dataField="scenario" />
+            <Item dataField="traffic_category" />
+            <Item
+              dataField="forbirding_comment"
+              editorType="dxTextArea"
+              colSpan={2}
+            />
+            <Item
+              dataField="message_before_start"
+              editorType="dxTextArea"
+              colSpan={2}
+            />
+            <Item dataField="meta" editorType="dxTextArea" colSpan={2} />
+            <Item dataField="video_max_time" />
+
+            <Item dataField="deny_outside_zone" />
+            <Item dataField="color" />
+            <Item dataField="weight" />
           </Form>
         </Editing>
-        <Column dataField="Prefix" caption="Title" width={70} />
+        {/* <Column dataField="Prefix" caption="Title" width={70} />
         <Column dataField="FirstName" />
         <Column dataField="LastName" />
         <Column dataField="BirthDate" dataType="date" />
@@ -139,7 +177,56 @@ export default function OffenseTypes() {
           <Lookup dataSource={states} valueExpr="ID" displayExpr="Name" />
         </Column>
         <Column dataField="Address" visible={false} />
-        <Column dataField="Notes" visible={false} />
+        <Column dataField="Notes" visible={false} /> */}
+        <Column dataField="categoryId" caption="Категория">
+          <Lookup
+            dataSource={offenseCategories}
+            valueExpr="id"
+            displayExpr="name"
+          />
+        </Column>
+        <Column dataField="name" caption="Название" width={570} />
+        <Column
+          dataField="hidden"
+          caption="Скрыто"
+          dataType="boolean"
+          width={70}
+        />
+        <Column
+          dataField="hidden_on_map"
+          caption="Скрыто на карте"
+          dataType="boolean"
+          width={150}
+        />
+        <Column
+          dataField="scenario"
+          caption="Сценарий фиксации"
+          visible={false}
+        />
+        <Column dataField="traffic_category" caption="Категория из Траффика" />
+        <Column
+          dataField="forbirding_comment"
+          visible={false}
+          caption="Запрещающий комментарий"
+        />
+        <Column
+          dataField="video_max_time"
+          visible={false}
+          caption="Продолжительность видео"
+        />
+        <Column
+          dataField="message_before_start"
+          visible={false}
+          caption="Комментарий перед фиксацией"
+        />
+        <Column dataField="meta" visible={false} caption="Мета данные" />
+        <Column
+          dataField="deny_outside_zone"
+          caption="Запрет фиксировать в произвольном месте"
+          visible={false}
+        />
+        <Column dataField="color" visible={false} caption="Цвет" />
+        <Column dataField="weight" visible={false} caption="Вес" />
       </DataGrid>
     </React.Fragment>
   );
