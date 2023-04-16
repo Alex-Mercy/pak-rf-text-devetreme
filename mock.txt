@@ -1,0 +1,30 @@
+<Item itemType="group" colCount={2} colSpan={2}>
+              <Item dataField="Категория" />
+              <Item dataField="Название" />
+              <Item dataField="Скрыто" />
+              <Item dataField="Скрыто на карте" />
+              <Item dataField="Сценарий фиксации" />
+              <Item dataField="Категория из Траффика" />
+              <Item dataField="Запрещающий комментарий" />
+              <Item dataField="Продолжительность видео" />
+              <Item dataField="Комментарий перед фиксацией" />
+              <Item dataField="Мета данные" />
+              <Item dataField="Запрет фиксировать в произвольном месте" />
+              <Item dataField="Цвет" />
+              <Item dataField="Вес" />
+
+
+
+<Column dataField="Категория" width={570} />
+          <Column dataField="Название" width={570} />
+          <Column dataField="Скрыто" dataType="boolean" />
+          <Column dataField="Скрыто на карте" dataType="boolean" />
+          <Column dataField="Сценарий фиксации" visible={false}/>
+          <Column dataField="Категория из Траффика" />
+          <Column dataField="Запрещающий комментарий" visible={false}/>
+          <Column dataField="Продолжительность видео" visible={false} />
+          <Column dataField="Комментарий перед фиксацией" visible={false}/>
+          <Column dataField="Мета данные" visible={false}/>
+          <Column dataField="Запрет фиксировать в произвольном месте" visible={false}/>
+          <Column dataField="Цвет" visible={false}/>
+          <Column dataField="Вес" visible={false}/>
